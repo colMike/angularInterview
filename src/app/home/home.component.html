@@ -1,6 +1,6 @@
-<h1>Home Page</h1>
+<h1>{{'HomePage' | translate}}</h1>
 <p>
-  Welcome {{authService.getCurrentUser().user.username | titlecase}}
+  {{'Welcome' | translate}} {{authService.getCurrentUser().user.username | titlecase}}
 </p>
 <ul>
   <li *ngIf="authService.isLoggedIn()"><a routerLink="/admin">Admin</a></li>
