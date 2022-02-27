@@ -8,7 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  constructor(private authService: AuthService) { }
+  authService: AuthService;
+
+  constructor(private auth_Service: AuthService) {
+    this.authService = auth_Service;
+  }
 
   onLogout() {
     this.authService.logout();
