@@ -13,6 +13,7 @@ import {AdminComponent} from './admin/admin.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {NoAccessComponent} from './no-access/no-access.component';
 import {HttpClientModule} from "@angular/common/http";
+import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {HttpClientModule} from "@angular/common/http";
     AdminComponent,
     HomeComponent,
     NotFoundComponent,
-    NoAccessComponent
+    NoAccessComponent,
+    BsNavbarComponent
   ],
   imports: [
     BrowserModule,
