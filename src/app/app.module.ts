@@ -12,9 +12,11 @@ import {SignupComponent} from './signup/signup.component';
 import {AdminComponent} from './admin/admin.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {NoAccessComponent} from './no-access/no-access.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import {AuthGuard} from "./services/auth-guard.service";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
 @NgModule({
   declarations: [
@@ -36,16 +38,27 @@ import {AuthGuard} from "./services/auth-guard.service";
       {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent},
       {path: 'no-access', component: NoAccessComponent}
-    ])
+    ]),
+
+    // For Multilingual support
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     OrderService,
-
     AuthService,
-
     AuthGuard
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+}
+
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
 }

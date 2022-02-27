@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
   <a class="navbar-brand" routerLink="#">Eclectics</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+  <button aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+          data-target="#navbarsExampleDefault" data-toggle="collapse" type="button">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -14,11 +15,26 @@
     </ul>
   </div>
 
+  <div>
+    <span class="form-check-inline">
+      <select #selectedLang
+              (change)="switchLanguage(selectedLang.value)"
+              class="form-control">
+        <option *ngFor="let language of translate.getLangs()"
+                [selected]="language === translate.currentLang" [value]="language">
+          {{language}}
+        </option>
+
+      </select>
+    </span>
+  </div>
+
   <div class="dropdown">
-    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown">
+    <button aria-expanded="false" aria-haspopup="true" class="btn btn-light dropdown-toggle mr-4" data-bs-toggle="dropdown"
+            data-toggle="dropdown" id="dropdownMenuButton" type="button">
       {{(authService.getCurrentUser() ? authService.getCurrentUser().user.username : 'UserName') | titlecase }}
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
       <a class="dropdown-item" routerLink="#">Home</a>
       <a class="dropdown-item" routerLink="#">Loans</a>
       <a class="dropdown-item" routerLink="#">Other Loans</a>
@@ -26,6 +42,7 @@
     </div>
   </div>
 
+  <div style="width: 20px"></div>
 </nav>
 
 
