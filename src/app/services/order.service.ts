@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable()
 export class OrderService {
@@ -8,6 +8,12 @@ export class OrderService {
   }
 
   getOrders() {
-    return this.http.get('/api/orders');
+    let token: any = localStorage.getItem('token');
+
+    const options = {
+      headers: new HttpHeaders().append('Authorization', 'Bearer ' + token)
+    }
+
+    return this.http.get('http://localhost:3000/user/orders', options);
   }
 }

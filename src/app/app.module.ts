@@ -14,6 +14,7 @@ import {NotFoundComponent} from './not-found/not-found.component';
 import {NoAccessComponent} from './no-access/no-access.component';
 import {HttpClientModule} from "@angular/common/http";
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
+import {AuthGuard} from "./services/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -31,8 +32,8 @@ import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: '', component: HomeComponent},
-      {path: 'admin', component: AdminComponent},
+      {path: '', component: HomeComponent, canActivate: [AuthGuard]},
+      {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent},
       {path: 'no-access', component: NoAccessComponent}
     ])
@@ -41,6 +42,8 @@ import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
     OrderService,
 
     AuthService,
+
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -5,6 +5,9 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 
 @Injectable()
 export class AuthService {
+
+  jwtHelper = new JwtHelperService();
+
   constructor(private http: HttpClient) {
   }
 
@@ -31,10 +34,20 @@ export class AuthService {
     if (!token) {
       return false;
     }
-    let jwtHelper = new JwtHelperService();
-    let isExpired = jwtHelper.isTokenExpired(token);
+
+    let isExpired = this.jwtHelper.isTokenExpired(token);
 
     return !isExpired;
   }
+
+  getCurrentUser() {
+    let token = localStorage.getItem('token');
+
+    if (!token) return null;
+
+    return this.jwtHelper.decodeToken(token);
+
+  }
+
 }
 
