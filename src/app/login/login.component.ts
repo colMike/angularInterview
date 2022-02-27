@@ -22,6 +22,8 @@ export class LoginComponent {
           this.router.navigate(['/']);
         else
           this.invalidLogin = true;
+      }, error => {
+        console.log(error)
       });
   }
 }
