@@ -1,5 +1,6 @@
 import { OrderService } from './../services/order.service';
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-admin',
@@ -9,8 +10,14 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComponent implements OnInit {
   // @ts-ignore
   orders: any[];
+  authService: AuthService;
 
-  constructor(private orderService: OrderService) { }
+
+  constructor(
+    private orderService: OrderService,
+    private auth_Service: AuthService) {
+    this.authService = auth_Service;
+  }
 
   ngOnInit() {
     this.orderService.getOrders()
@@ -19,4 +26,9 @@ export class AdminComponent implements OnInit {
         this.orders = orders['orders'];
       });
   }
+
+  onLogout() {
+    this.authService.logout();
+  }
+
 }

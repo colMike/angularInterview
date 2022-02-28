@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-  <a class="navbar-brand" routerLink="#">Eclectics</a>
+  <a class="navbar-brand" routerLink="/">Eclectics</a>
   <button aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
           data-target="#navbarsExampleDefault" data-toggle="collapse" type="button">
     <span class="navbar-toggler-icon"></span>
@@ -35,14 +35,15 @@
       {{(authService.getCurrentUser() ? authService.getCurrentUser().user.username : 'UserName') | titlecase }}
     </button>
     <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
-      <a class="dropdown-item" routerLink="#">Home</a>
-      <a class="dropdown-item" routerLink="#">Loans</a>
-      <a class="dropdown-item" routerLink="#">Other Loans</a>
-      <a class="dropdown-item" routerLink="#">Logout</a>
+      <a class="dropdown-item" routerLink="/">Home</a>
+      <a class="dropdown-item" routerLink="/admin/applyLoan">Apply for Loan</a>
+      <a class="dropdown-item" routerLink="/admin/checkLoanLimits">Check Loan Limits</a>
+      <a class="dropdown-item" routerLink="/admin/loanRepaymentProcess">Loan Repayment Process</a>
+      <a class="dropdown-item" routerLink="/admin/checkBalance">Check Loan Balance</a>
+      <a class="dropdown-item" routerLink="/admin/downloadSchedule">Download Schedule</a>
+      <a class="dropdown-item" (click)="onLogout()" routerLink="/login">Logout</a>
     </div>
   </div>
 
   <div style="width: 20px"></div>
 </nav>
-
-

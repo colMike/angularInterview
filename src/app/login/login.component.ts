@@ -25,7 +25,7 @@ export class LoginComponent {
 
           let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
 
-          this.router.navigate([returnUrl || '/']);
+          this.router.navigate([returnUrl || '/admin']);
         }
         else
           this.invalidLogin = true;

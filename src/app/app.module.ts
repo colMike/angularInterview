@@ -18,6 +18,11 @@ import {AuthGuard} from "./services/auth-guard.service";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { RegisterComponent } from './register/register.component';
+import { ApplyLoanComponent } from './admin/apply-loan/apply-loan.component';
+import { CheckLoanLimitsComponent } from './admin/check-loan-limits/check-loan-limits.component';
+import { DownloadScheduleComponent } from './admin/download-schedule/download-schedule.component';
+import { LoanReoaymentProcessComponent } from './admin/loan-reoayment-process/loan-reoayment-process.component';
+import { CheckBalanceComponent } from './admin/check-balance/check-balance.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,12 @@ import { RegisterComponent } from './register/register.component';
     NotFoundComponent,
     NoAccessComponent,
     BsNavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    ApplyLoanComponent,
+    CheckLoanLimitsComponent,
+    DownloadScheduleComponent,
+    LoanReoaymentProcessComponent,
+    CheckBalanceComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +50,16 @@ import { RegisterComponent } from './register/register.component';
       {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
-      {path: 'no-access', component: NoAccessComponent}
+      {path: 'no-access', component: NoAccessComponent},
+
+      {path: 'admin/applyLoan', component: ApplyLoanComponent, canActivate: [AuthGuard]},
+      {path: 'admin/checkLoanLimits', component: CheckLoanLimitsComponent, canActivate: [AuthGuard]},
+      {path: 'admin/loanRepaymentProcess', component: LoanReoaymentProcessComponent, canActivate: [AuthGuard]},
+      {path: 'admin/checkBalance', component: CheckBalanceComponent, canActivate: [AuthGuard]},
+      {path: 'admin/downloadSchedule', component: DownloadScheduleComponent, canActivate: [AuthGuard]},
+
+
+
     ]),
 
     // For Multilingual support

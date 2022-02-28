@@ -32,4 +32,8 @@ export class BsNavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLogout() {
+    this.authService.logout();
+  }
+
 }

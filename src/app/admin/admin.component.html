@@ -1,6 +1,26 @@
+<p>
+  {{'Welcome' | translate}} {{authService.getCurrentUser().user.username | titlecase}}
+</p>
 
-<h1>Admin</h1>
-<h2>Orders</h2>
-<ul>
-  <li *ngFor="let order of orders">{{ order }}</li>
-</ul>
+<!--<ul>-->
+<!--  <li *ngFor="let order of orders">{{ order }}</li>-->
+<!--</ul>-->
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Loans Section</h1>
+    <p class="lead text-muted">Welcome to the Loans Section. Use this to apply and view the status of your loans. Your Loan repayment is downloadable in excel format.</p>
+    <p>
+      <a routerLink="/admin/applyLoan" class="btn btn-primary my-2 pr-2">Apply For Loan</a>
+      <span class="m-2"></span>
+      <a routerLink="/admin/checkLoanLimits" class="btn btn-primary my-2">Check Loan Limits</a>
+      <span class="m-2"></span>
+      <a routerLink="/admin/downloadSchedule" class="btn btn-primary my-2">Download Loan repayment schedule</a>
+      <span class="m-2"></span>
+      <a routerLink="/admin/loanRepaymentProcess" class="btn btn-primary my-2">Loan Repayment Process</a>
+      <span class="m-2"></span>
+      <a routerLink="/admin/checkBalance" class="btn btn-primary my-2">Check Loan Balance</a>
+    </p>
+  </div>
+</section>
+
