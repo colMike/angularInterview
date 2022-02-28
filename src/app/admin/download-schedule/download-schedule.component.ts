@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {ExcelDownloadService} from "./excel-download.service";
 
 @Component({
   selector: 'app-download-schedule',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DownloadScheduleComponent implements OnInit {
 
-  constructor() { }
+  title = 'excel-upload-download';
+  ngOnInit(){
+  }
+  excel=[];
+  constructor(private excelService: ExcelDownloadService, private http: HttpClient) {
+    this.getJSON().subscribe(data => {
 
-  ngOnInit(): void {
+      // @ts-ignore
+      data.forEach(row => this.excel.push(row));
+    });
   }
 
+  exportAsXLSX():void {
+    this.excelService.exportAsExcelFile(this.excel, 'sample');
+  }
+  public getJSON(): Observable<any> {
+    return this.http.get('https://google.com');
+  }
 }

@@ -2,8 +2,43 @@
   <div class="container">
     <h1 class="jumbotron-heading">Loan Schedule</h1>
     <p class="lead text-muted">Download your Loan Schedule here:</p>
-        <p>
-          <a routerLink="/register" class="btn btn-primary my-2 pr-2">Download your loan schedule as an excel document</a>
-        </p>
   </div>
 </section>
+
+
+<div class="container">
+  <button (click)="exportAsXLSX()" class="btn btn-info mb-4 mt-2">Download Excel</button>
+  <table class="table table-striped table-bordered table-hover">
+    <tr>
+      <th>#</th>
+      <th>Month</th>
+      <th>Expected Payment</th>
+      <th>Payment</th>
+      <th>Remainder</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>January</td>
+      <td>200</td>
+      <td>50</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>February</td>
+      <td>150</td>
+      <td>30</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>March</td>
+      <td>120</td>
+      <td>____</td>
+      <td>120</td>
+    </tr>
+  </table>
+
+  <p class="lead text-muted"><u>You have a balance of 120Ksh.</u></p>
+
+</div>
