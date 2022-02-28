@@ -1,5 +1,5 @@
 <p>
-  {{'Welcome' | translate}} {{authService.getCurrentUser().user.username | titlecase}}
+  {{'Welcome' | translate}} {{(authService.getCurrentUser().user ? authService.getCurrentUser().user.userName: 'User') | titlecase}}
 </p>
 
 

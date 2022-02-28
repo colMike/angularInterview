@@ -32,7 +32,7 @@
   <div class="dropdown">
     <button aria-expanded="false" aria-haspopup="true" class="btn btn-light dropdown-toggle mr-4" data-bs-toggle="dropdown"
             data-toggle="dropdown" id="dropdownMenuButton" type="button">
-      {{(authService.getCurrentUser() ? authService.getCurrentUser().user.username : 'UserName') | titlecase }}
+      {{(authService.getCurrentUser() ? authService.getCurrentUser().user.userName : 'UserName') | titlecase }}
     </button>
     <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
       <a class="dropdown-item" routerLink="/">Home</a>
