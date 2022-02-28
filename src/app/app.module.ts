@@ -34,7 +34,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: '', component: HomeComponent, canActivate: [AuthGuard]},
+      {path: '', component: HomeComponent},
       {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent},
       {path: 'no-access', component: NoAccessComponent}

@@ -7,3 +7,16 @@
   <li *ngIf="!authService.isLoggedIn()"><a routerLink="/login">Login</a></li>
   <li *ngIf="authService.isLoggedIn()"><a (click)="onLogout()" routerLink="/login">Logout</a></li>
 </ul>
+
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Eclectics </h1>
+    <p class="lead text-muted">Welcome to the Eclectics Customers Loan Management Application. Use this portal to apply and view the status of your loans</p>
+    <p>
+      <a routerLink="#" class="btn btn-primary my-2 pr-2">Register as Customer</a>
+      <span class="m-2"></span>
+      <a routerLink="/login" class="btn btn-secondary my-2">Log In</a>
+    </p>
+  </div>
+</section>
