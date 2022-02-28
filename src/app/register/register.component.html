@@ -1,0 +1,30 @@
+<form #f="ngForm" (ngSubmit)="signIn(f.value)" class="form-signin">
+  <h2 class="form-signin-heading">Please register as a new user</h2>
+  <div *ngIf="invalidForm" class="alert alert-danger">Invalid Form Details.</div>
+  <label class="sr-only" for="inputFirstName">First Name</label>
+  <input autofocus class="form-control" id="inputFirstName" name="firstName" ngModel placeholder="First Name" required
+         type="text">
+  <label class="sr-only" for="inputMiddleName">Middle Name</label>
+  <input class="form-control" id="inputMiddleName" name="middleName" ngModel placeholder="Middle Name" required
+         type="text">
+  <label class="sr-only" for="inputLastName">Last Name</label>
+  <input autofocus class="form-control" id="inputLastName" name="lastName" ngModel placeholder="Last Name" required
+         type="text">
+  <label class="sr-only" for="inputIdNumber">Id Number</label>
+  <input class="form-control" id="inputIdNumber" name="idNumber" ngModel placeholder="ID Number" required
+         type="number">
+  <label class="sr-only" for="inputDOB">Date of Birth</label>
+  <input autofocus class="form-control" id="inputDOB" name="dob" ngModel placeholder="Date of Birth" required
+         type="date">
+  <label class="sr-only" for="inputPassword">Password</label>
+  <input class="form-control" id="inputPassword" name="password" ngModel placeholder="Password" required
+         type="password">
+  <label class="sr-only" for="inputPasswordConfirmation">Confirm Password</label>
+  <input class="form-control" id="inputPasswordConfirmation" name="passwordConfirmation" ngModel placeholder="Password Confirmation" required
+         type="password">
+
+  <br>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+  <br>
+  <span><a routerLink="/register">Already have account? Click here to Log In</a></span>
+</form>

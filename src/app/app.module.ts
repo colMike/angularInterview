@@ -17,6 +17,7 @@ import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import {AuthGuard} from "./services/auth-guard.service";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
     HomeComponent,
     NotFoundComponent,
     NoAccessComponent,
-    BsNavbarComponent
+    BsNavbarComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
       {path: '', component: HomeComponent},
       {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent},
+      {path: 'register', component: RegisterComponent},
       {path: 'no-access', component: NoAccessComponent}
     ]),
 
