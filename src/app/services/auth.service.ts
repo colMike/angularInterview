@@ -22,6 +22,17 @@ export class AuthService {
      }));
   }
 
+  register(userDetails: any) {
+   return this.http.post('http://localhost:3000/user/register', userDetails)
+     .pipe(map((response: any) => {
+       if (response && response.token) {
+         localStorage.setItem('token', response.token);
+         return true
+       }
+       return false;
+     }));
+  }
+
   logout() {
     localStorage.removeItem('token');
 
@@ -44,6 +55,8 @@ export class AuthService {
     let token = localStorage.getItem('token');
 
     if (!token) return null;
+
+    console.log(this.jwtHelper.decodeToken(token));
 
     return this.jwtHelper.decodeToken(token);
 

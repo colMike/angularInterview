@@ -16,18 +16,19 @@ export class RegisterComponent {
     private route: ActivatedRoute,
     private authService: AuthService) { }
 
-  signIn(credentials: any) {
+  signIn(userDetails: any) {
 
     console.log('Registration credentials');
-    console.log(credentials);
+    console.log(userDetails);
 
-    this.authService.login(credentials)
+
+    this.authService.register(userDetails)
       .subscribe(result => {
         if (result) {
 
           let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
 
-          this.router.navigate([returnUrl || '/']);
+          this.router.navigate([returnUrl || '/admin']);
         }
         else
           this.invalidForm = true;

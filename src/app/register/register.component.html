@@ -1,15 +1,20 @@
 <form #f="ngForm" (ngSubmit)="signIn(f.value)" class="form-signin">
   <h2 class="form-signin-heading">Please register as a new user</h2>
   <div *ngIf="invalidForm" class="alert alert-danger">Invalid Form Details.</div>
+
+  <label class="sr-only" for="inputUserName">UserName</label>
+  <input autofocus class="form-control" id="inputUserName" name="userName" ngModel placeholder="User Name" required
+         type="text">
+
   <label class="sr-only" for="inputFirstName">First Name</label>
   <input autofocus class="form-control" id="inputFirstName" name="firstName" ngModel placeholder="First Name" required
-         type="text">
-  <label class="sr-only" for="inputMiddleName">Middle Name</label>
-  <input class="form-control" id="inputMiddleName" name="middleName" ngModel placeholder="Middle Name" required
          type="text">
   <label class="sr-only" for="inputLastName">Last Name</label>
   <input autofocus class="form-control" id="inputLastName" name="lastName" ngModel placeholder="Last Name" required
          type="text">
+  <label class="sr-only" for="inputEmail">Email</label>
+  <input class="form-control" id="inputEmail" name="email" ngModel placeholder="Email" required
+         type="email">
   <label class="sr-only" for="inputIdNumber">Id Number</label>
   <input class="form-control" id="inputIdNumber" name="idNumber" ngModel placeholder="ID Number" required
          type="number">

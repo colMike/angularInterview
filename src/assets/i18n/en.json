@@ -1,5 +1,9 @@
 {
   "SiteTitle": "Eclectics App",
   "Welcome": "Welcome",
-  "HomePage" : "Home Page"
+  "HomePage" : "Home Page",
+  "Loan Application": "Loan Application",
+  "Apply for a loan here": "Apply for a loan here",
+  "Below are the loans that you qualify for": "Below are the loans that you qualify for"
+
 }
