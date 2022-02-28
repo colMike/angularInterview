@@ -7,15 +7,19 @@
 
   <div class="row">
     <div class="col-3">
-      <div class="card">
+      <div class="card mt-4">
         <article class="card-group-item">
-          <header class="card-header"><h6 class="title">Similar category </h6></header>
+          <header class="card-header"><h6 class="title">Navigation </h6></header>
           <div class="filter-content">
             <div class="list-group list-group-flush">
-              <a href="#" class="list-group-item">Cras justo odio <span class="float-right badge badge-light round">142</span> </a>
-              <a href="#" class="list-group-item">Dapibus ac facilisis  <span class="float-right badge badge-light round">3</span>  </a>
-              <a href="#" class="list-group-item">Morbi leo risus <span class="float-right badge badge-light round">32</span>  </a>
-              <a href="#" class="list-group-item">Another item <span class="float-right badge badge-light round">12</span>  </a>
+              <a *ngIf="authService.isLoggedIn()" routerLink="/admin/applyLoan" class="list-group-item">Apply for Loan<span class="float-right badge badge-light round">3</span>  </a>
+              <a *ngIf="authService.isLoggedIn()" routerLink="/admin/checkLoanLimits" class="list-group-item">Check Loan Limits<span class="float-right badge badge-light round">32</span>  </a>
+              <a *ngIf="authService.isLoggedIn()" routerLink="/admin/checkBalance" class="list-group-item">Check Loan Balance<span class="float-right badge badge-light round">32</span>  </a>
+              <a *ngIf="authService.isLoggedIn()" routerLink="/admin/downloadSchedule" class="list-group-item">Download Loan Schedule<span class="float-right badge badge-light round">12</span>  </a>
+              <a *ngIf="authService.isLoggedIn()" (click)="onLogout()" routerLink="/login" class="list-group-item">Logout<span class="float-right badge badge-light round">12</span>  </a>
+
+              <a *ngIf="!authService.isLoggedIn()" routerLink="/login" class="list-group-item">Login<span class="float-right badge badge-light round">12</span>  </a>
+              <a *ngIf="!authService.isLoggedIn()" routerLink="/register" class="list-group-item">Register<span class="float-right badge badge-light round">12</span>  </a>
             </div>  <!-- list-group .// -->
           </div>
         </article> <!-- card-group-item.// -->
@@ -27,6 +31,13 @@
 
   </div>
 
+<!--  <a class="dropdown-item" routerLink="/">Home</a>-->
+<!--  <a class="dropdown-item" routerLink="/admin/applyLoan">Apply for Loan</a>-->
+<!--  <a class="dropdown-item" routerLink="/admin/checkLoanLimits">Check Loan Limits</a>-->
+<!--  <a class="dropdown-item" routerLink="/admin/loanRepaymentProcess">Loan Repayment Process</a>-->
+<!--  <a class="dropdown-item" routerLink="/admin/checkBalance">Check Loan Balance</a>-->
+<!--  <a class="dropdown-item" routerLink="/admin/downloadSchedule">Download Schedule</a>-->
+<!--  <a class="dropdown-item" (click)="onLogout()" routerLink="/login">Logout</a>-->
 
 
 </main>
