@@ -23,6 +23,8 @@ import { CheckLoanLimitsComponent } from './admin/check-loan-limits/check-loan-l
 import { DownloadScheduleComponent } from './admin/download-schedule/download-schedule.component';
 import { LoanReoaymentProcessComponent } from './admin/loan-reoayment-process/loan-reoayment-process.component';
 import { CheckBalanceComponent } from './admin/check-balance/check-balance.component';
+import { FosaLoanComponent } from './admin/apply-loan/fosa-loan/fosa-loan.component';
+import { EmergencyLoanComponent } from './admin/apply-loan/emergency-loan/emergency-loan.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { CheckBalanceComponent } from './admin/check-balance/check-balance.compo
     CheckLoanLimitsComponent,
     DownloadScheduleComponent,
     LoanReoaymentProcessComponent,
-    CheckBalanceComponent
+    CheckBalanceComponent,
+    FosaLoanComponent,
+    EmergencyLoanComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,9 @@ import { CheckBalanceComponent } from './admin/check-balance/check-balance.compo
       {path: 'admin/loanRepaymentProcess', component: LoanReoaymentProcessComponent, canActivate: [AuthGuard]},
       {path: 'admin/checkBalance', component: CheckBalanceComponent, canActivate: [AuthGuard]},
       {path: 'admin/downloadSchedule', component: DownloadScheduleComponent, canActivate: [AuthGuard]},
+
+      {path: 'admin/applyLoan/fosaLoan', component: FosaLoanComponent, canActivate: [AuthGuard]},
+      {path: 'admin/applyLoan/emergencyLoan', component: EmergencyLoanComponent, canActivate: [AuthGuard]},
 
 
 
